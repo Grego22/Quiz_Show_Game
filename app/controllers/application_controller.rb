@@ -15,4 +15,7 @@ class ApplicationController < ActionController::Base
       def authorize!
         redirect_to login_path unless logged_in?
       end
+      def require_admin
+      redirect_to '/' unless current_user.admin?
     end
+  end
